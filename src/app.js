@@ -15,8 +15,8 @@ app.use(cors());
 app.use(express.json());
 
 // routes
-app.get("/api/v1/auth", authRouter);
-app.get("/api/v1/jobs", jobsRouter);
+app.use("/api/v1/auth", authRouter);
+app.use("/api/v1/jobs", jobsRouter);
 
 app.use(notFoundMiddleware);
 app.use(errorHandlerMiddleware);
