@@ -10,12 +10,14 @@ const jobsRouter = require("./routes/jobRouter");
 
 const notFoundMiddleware = require('./middlewares/notFoundMiddleware');
 const errorHandlerMiddleware = require('./middlewares/errorHandlerMiddleware');
+const authenticationMiddleware = require("./middlewares/authenticationMiddleware");
 
 app.use(cors());
 app.use(express.json());
 
 // routes
 app.use("/api/v1/auth", authRouter);
+app.use(authenticationMiddleware);
 app.use("/api/v1/jobs", jobsRouter);
 
 app.use(notFoundMiddleware);
