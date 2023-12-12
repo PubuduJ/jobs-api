@@ -41,4 +41,10 @@ UserSchema.methods.createJWT = function() {
     return jwt.sign({userId:this._id, name:this.name}, process.env.JWT_SECRET, {expiresIn: process.env.JWT_LIFETIME});
 }
 
+// schema instance method to compare hashed password with login password.
+UserSchema.methods.comparePassword = async function(candidatePassword) {
+    // this.password is the password from the document.
+    return await bcrypt.compare(candidatePassword, this.password);
+}
+
 module.exports = mongoose.model("User", UserSchema);
