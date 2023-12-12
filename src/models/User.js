@@ -38,7 +38,7 @@ UserSchema.pre("save", async function() {
 
 // schema instance method to create JWT.
 UserSchema.methods.createJWT = function() {
-    return jwt.sign({userId:this._id, name:this.name}, process.env.JWT_SECRET, {expiresIn: "1d"});
+    return jwt.sign({userId:this._id, name:this.name}, process.env.JWT_SECRET, {expiresIn: process.env.JWT_LIFETIME});
 }
 
 module.exports = mongoose.model("User", UserSchema);
