@@ -28,6 +28,7 @@ const UserSchema = new mongoose.Schema({
 })
 
 // mongoose middleware to hash the password before saving the register user.
+// user.save() is used to invoke this middleware in the codebase.
 // use function keyword instead of arrow function, to always point `this` to the document.
 UserSchema.pre("save", async function() {
     // salt is random bytes, 10 random bytes will get here.
