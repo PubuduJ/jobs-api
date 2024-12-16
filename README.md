@@ -5,6 +5,7 @@ After registering, individuals can log in using the designated login API to acce
 including **creating, updating, deleting, retrieving individual jobs, and obtaining a list of all jobs.** 
 The system accommodates multiple user registrations, storing specific jobs for each user. Only the **logged-in user can manage their respective set of jobs.** 
 
+
 Security measures, specifically JWT, is implemented to protect access to job-related resources. Meanwhile, the authentication endpoints 
 are publicly available for user registration and login purposes.
 
